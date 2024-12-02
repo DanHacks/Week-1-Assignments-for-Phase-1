@@ -1,4 +1,4 @@
-// i have a function called netsallary callculator
+//I have a function called netsallary callculator
 //constant basicsalary
 //constant benefits
 
@@ -7,20 +7,15 @@ function netSalaryCalculator() {
     const benefits = parseFloat(prompt("Enter your benefits:"));
 
     //input validation if number entered is none basic sallary or non benefit return invalid input/enter numeric values
-   
-    if (isNaN(basicSalary) || isNaN(benefits)) {
+   if (isNaN(basicSalary) || isNaN(benefits)) {
         console.log(Invalid input.  enter numeric values.);
         return;
     }
 
     //salary calculation
-
-    
     const grossSalary = basicSalary + benefits;
-
-
     // Tax calc KRA rates
-    // multiply depending on salary
+    // lets multiply KRA rates depending on salary
     let tax = 0;
     if (grossSalary <= 24000) tax = grossSalary * 0.1;
     else if (grossSalary <= 32333) tax = grossSalary * 0.25;
@@ -28,7 +23,7 @@ function netSalaryCalculator() {
 
 
     // Nhif DEDUCTION rates
-   //depending on youre earnings
+   //depending on the salarynr the earnings this are the rates 
    
    const nhifRates = [
 
