@@ -1,22 +1,37 @@
+// i have a function called netsallary callculator
+//constant basicsalary
+//constant benefits
+
 function netSalaryCalculator() {
     const basicSalary = parseFloat(prompt("Enter your basic salary:"));
     const benefits = parseFloat(prompt("Enter your benefits:"));
 
+    //input validation if number entered is none basic sallary or non benefit return invalid input/enter numeric values
+   
     if (isNaN(basicSalary) || isNaN(benefits)) {
-        console.log("Invalid input. Please enter numeric values.");
+        console.log(Invalid input.  enter numeric values.);
         return;
     }
 
+    //salary calculation
+
+    
     const grossSalary = basicSalary + benefits;
 
-    // Tax calculation based on KRA rates
+
+    // Tax calc KRA rates
+    // multiply depending on salary
     let tax = 0;
     if (grossSalary <= 24000) tax = grossSalary * 0.1;
     else if (grossSalary <= 32333) tax = grossSalary * 0.25;
     else tax = grossSalary * 0.3;
 
-    // NHIF deduction
-    const nhifRates = [
+
+    // Nhif DEDUCTION rates
+   //depending on youre earnings
+   
+   const nhifRates = [
+
         { min: 0, max: 5999, deduction: 150 },
         { min: 6000, max: 7999, deduction: 300 },
         { min: 8000, max: 11999, deduction: 400 },
@@ -29,17 +44,22 @@ function netSalaryCalculator() {
         { min: 40000, max: Infinity, deduction: 1000 }
     ];
     const nhifDeduction = nhifRates.find(rate => grossSalary >= rate.min && grossSalary <= rate.max).deduction;
-
-    // NSSF deduction
+    //Nssf deductions :
+    
     const nssfDeduction = Math.min(grossSalary * 0.06, 1800);
 
+    //net sallary calc gross-all deductions
+  
     const netSalary = grossSalary - tax - nhifDeduction - nssfDeduction;
 
-    console.log(`Gross Salary: ${grossSalary}`);
-    console.log(`Tax: ${tax}`);
-    console.log(`NHIF Deduction: ${nhifDeduction}`);
-    console.log(`NSSF Deduction: ${nssfDeduction}`);
-    console.log(`Net Salary: ${netSalary}`);
+   //to out put message to the console using console.log
+    console.log("Gross Salary: ${grossSalary}");
+    console.log(Tax: ${tax});
+    console.log("NHIF Deduction: ${nhifDeduction}");
+    console.log(NSSF Deduction: ${nssfDeduction});
+    console.log("Net Salary: ${netSalary}");
 }
 
-netSalaryCalculator();
+//i called back the function at the end of the code
+
+   netSalaryCalculator()
